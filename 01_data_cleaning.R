@@ -214,3 +214,10 @@ export_data <- all_data %>% filter(year == "2011_12" | year == "2012_13" | year 
                                      year == "2017_18" | year == "2018_19")
 
 write_excel_csv(export_data, "csr_data_full.csv")
+
+# Export a version to CSV, with proprietary ProwessDx data removed
+
+export_public <- all_data[c("id", "company_name", "cin", "rank_csr", "public",
+                            "year", "spending_pbt3_pct")]
+
+write_excel_csv(export_public, "csr_data_public.csv")
